@@ -17,4 +17,4 @@ Folder yang saya buat berisi logika (`and`, `or`, `xor`).
 
 ## Pengujian
 
-Setiap studi kasus memiliki beberapa skenario pengujian dengan kombinasi kondisi `True` dan `False` untuk memastikan hasil program sesuai dengan logika yang digunakan.
+Di setiap studi kasus di ganti dengan perintah `True` dan `False` agar kita mengetahui hasil akhir dari logika boolean yang sudah kita kerjakan.

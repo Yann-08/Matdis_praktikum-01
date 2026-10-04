@@ -1,49 +1,74 @@
-# Tabel Hasil Pengujian (Truth Table)
+# TABEL PENGUJIAN
 
-Folder ini berisi rekapitulasi hasil pengujian dari setiap operator logika Boolean yang diterapkan pada studi kasus di repository ini. Pengujian dilakukan dengan memasukkan kombinasi kondisi `True` (Benar) dan `False` (Salah).
+Tabel pengujian digunakan untuk menguji setiap studi kasus dengan beberapa kombinasi kondisi `True` dan `False`.
 
----
+## 1. PENGUJIAN LOGIKA - `AND`
 
-## 1. Pengujian Logika `AND`
-**Studi Kasus yang relevan:** Diskon Belanja (`diskon_belanja_and_file.py`), Pendaftaran Beasiswa (`pendaftaran_beasiswa_and_file.py`)
+**Studi Kasus 1: Pendaftaran Beasiswa**
+| status_mahasiswa | ipk_memenuhi | berkas_lengkap | rekomendasi_dosen | prestasi_lomba | Hasil Beasiswa Utama | Hasil Jalur Khusus |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| True | True | True | False | False | Peserta LOLOS seleksi beasiswa utama | Peserta tidak masuk dalam kriteria jalur khusus |
+| True | True | True | True | True | Peserta LOLOS seleksi beasiswa utama | Peserta berhak mengikuti seleksi JALUR KHUSUS |
+| False | True | True | True | True | Peserta TIDAK LOLOS seleksi beasiswa utama | Peserta berhak mengikuti seleksi JALUR KHUSUS |
+| True | False | True | False | True | Peserta TIDAK LOLOS seleksi beasiswa utama | Peserta tidak masuk dalam kriteria jalur khusus |
+| False | False | False | False | False | Peserta TIDAK LOLOS seleksi beasiswa utama | Peserta tidak masuk dalam kriteria jalur khusus |
 
-Logika `AND` hanya akan menghasilkan nilai **True** jika **semua** kondisi bernilai True.
+**Studi Kasus 2: Diskon Belanja**
+| member_premium | belanja_besar | Hasil |
+| :--- | :--- | :--- |
+| True | True | Pelanggan MENDAPAT cashback |
+| False | True | Pelanggan TIDAK MENDAPAT cashback |
+| True | False | Pelanggan TIDAK MENDAPAT cashback |
+| False | False | Pelanggan TIDAK MENDAPAT cashback |
 
-| Skenario | Kondisi 1 | Kondisi 2 | Hasil Akhir (`AND`) | Kesimpulan |
-| :---: | :---: | :---: | :---: | :--- |
-| 1 | `True` | `True` | **`True`** | Program Berhasil / Syarat Terpenuhi |
-| 2 | `True` | `False` | **`False`** | Program Gagal / Syarat Tidak Terpenuhi |
-| 3 | `False` | `True` | **`False`** | Program Gagal / Syarat Tidak Terpenuhi |
-| 4 | `False` | `False` | **`False`** | Program Gagal / Syarat Tidak Terpenuhi |
+## 2. PENGUJIAN LOGIKA - `OR`
 
----
+**Studi Kasus 3: Sistem Login**
+| login_pakai_email | login_pakai_google | Hasil |
+| :--- | :--- | :--- |
+| True | True | Akses DITERIMA / Berhasil masuk ke beranda aplikasi |
+| False | True | Akses DITERIMA / Berhasil masuk ke beranda aplikasi |
+| True | False | Akses DITERIMA / Berhasil masuk ke beranda aplikasi |
+| False | False | Akses DITOLAK (Tidak ada metode login yang valid) |
 
-## 2. Pengujian Logika `OR`
-**Studi Kasus yang relevan:** Kontrol Remote (`remote_or_v1_file.py`, `remote_or_v2_file.py`, `remote_or_v3_file.py`)
+**Studi Kasus 4: Smart tv**
+| pakai_remote_tv | pakai_aplikasi_hp | Hasil |
+| :--- | :--- | :--- |
+| True | True | Smart TV MENYALA / Merespons perintah |
+| False | True | Smart TV MENYALA / Merespons perintah |
+| True | False | Smart TV MENYALA / Merespons perintah |
+| False | False | Smart TV TIDAK MERESPONS (Tidak ada input) |
 
-Logika `OR` akan menghasilkan nilai **True** jika **salah satu atau kedua** kondisi bernilai True.
+**Studi Kasus 5: Layar Kunci Handphone**
+| sidik_jari_cocok | wajah_dikenali | Hasil |
+| :--- | :--- | :--- |
+| True | True | Kunci layar TERBUKA / Mengakses menu utama |
+| False | True | Kunci layar TERBUKA / Mengakses menu utama |
+| True | False | Kunci layar TERBUKA / Mengakses menu utama |
+| False | False | Akses DITOLAK (Autentikasi gagal) |
 
-| Skenario | Kondisi 1 | Kondisi 2 | Hasil Akhir (`OR`) | Kesimpulan |
-| :---: | :---: | :---: | :---: | :--- |
-| 1 | `True` | `True` | **`True`** | Program Berhasil / Aksi Berjalan |
-| 2 | `True` | `False` | **`True`** | Program Berhasil / Aksi Berjalan |
-| 3 | `False` | `True` | **`True`** | Program Berhasil / Aksi Berjalan |
-| 4 | `False` | `False` | **`False`** | Program Gagal / Aksi Berhenti |
+## 3. PENGUJIAN LOGIKA - `XOR`
 
----
+**Studi Kasus 6: Kendaraan**
+| bawa_motor | bawa_mobil | Hasil |
+| :--- | :--- | :--- |
+| True | True | Batal berangkat: Kendaraan tidak valid |
+| False | True | Mahasiswa SIAP berangkat ke kampus |
+| True | False | Mahasiswa SIAP berangkat ke kampus |
+| False | False | Batal berangkat: Kendaraan tidak valid |
 
-## 3. Pengujian Logika `XOR` (Exclusive OR)
-**Studi Kasus yang relevan:** Simulasi Kendaraan (`motormobil_xor_file.py`, `motormobil_xor_v1_file.py`, `motormobil_xor_v2_file.py`)
+**Studi Kasus 7: Charger Baterai**
+| batas_daya_80 | isi_penuh_100 | Hasil |
+| :--- | :--- | :--- |
+| True | True | Konflik pengaturan: Tidak bisa menerapkan dua batas pengisian sekaligus |
+| False | True | Profil pengisian daya BERHASIL diterapkan |
+| True | False | Profil pengisian daya BERHASIL diterapkan |
+| False | False | Konflik pengaturan: Tidak bisa menerapkan dua batas pengisian sekaligus |
 
-Logika `XOR` akan menghasilkan nilai **True** HANYA JIKA **salah satu** kondisi bernilai True, tetapi tidak keduanya. (Jika keduanya True atau keduanya False, hasilnya False).
-
-| Skenario | Kondisi 1 | Kondisi 2 | Hasil Akhir (`XOR`) | Kesimpulan |
-| :---: | :---: | :---: | :---: | :--- |
-| 1 | `True` | `True` | **`False`** | Bentrok / Kondisi Tidak Valid |
-| 2 | `True` | `False` | **`True`** | Program Berhasil / Valid |
-| 3 | `False` | `True` | **`True`** | Program Berhasil / Valid |
-| 4 | `False` | `False` | **`False`** | Tidak Ada Input / Kondisi Tidak Valid |
-
----
-
-*Catatan: Hasil di atas didapatkan dari pengujian langsung (running text) terhadap file Python yang ada pada direktori utama.*
+**Studi Kasus 8: Metode Pembayaran**
+| bayar_tunai | bayar_kartu | Hasil |
+| :--- | :--- | :--- |
+| True | True | Transaksi Gagal: Silakan pilih HANYA satu metode pembayaran. |
+| False | True | Pembayaran berhasil diproses. |
+| True | False | Pembayaran berhasil diproses. |
+| False | False | Transaksi Gagal: Silakan pilih HANYA satu metode pembayaran. |
